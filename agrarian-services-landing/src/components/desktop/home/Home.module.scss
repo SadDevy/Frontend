@@ -1,0 +1,93 @@
+.home {
+  position: relative;
+
+  width: 450px;
+  height: 450px;
+
+  border-radius: 50%;
+  border: 5px solid #49176d;
+
+  background: url("../../../img/home.jpg") no-repeat -123px -110px;
+  background-size: 700px;
+
+  overflow: hidden;
+
+  &:hover &__info {
+    animation-duration: 1s;
+    animation-name: slidein;
+
+    visibility: visible;
+
+    height: 100%;
+  }
+
+  &__info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+
+    height: 0;
+    width: 100%;
+
+    opacity: .8;
+    visibility: hidden;
+
+    background-color: #C8BCC5;
+  }
+}
+
+.info {
+  &__address,
+  &__phone {
+    margin: 15px;
+
+    font-size: 25px;
+    font-weight: 700;
+    font-style: italic;
+
+    color: #49176d;
+  }
+}
+
+@keyframes slidein {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .home {
+    width: 400px;
+    height: 400px;
+
+    background-size: 660px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .home {
+    width: 300px;
+    height: 300px;
+
+    background-size: 555px;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  .home {
+    width: 250px;
+    height: 250px;
+
+    background-size: 505px;
+  }
+}
