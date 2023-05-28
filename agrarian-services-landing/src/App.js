@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {BrowserRouter as Router} from 'react-router-dom';
 
-import {Layout} from "./components/Layout";
+import {Layout} from "./components/general/Layout";
 
 import styles from './App.module.scss';
 
@@ -468,16 +468,6 @@ export const App = () => {
             price: "1000 Р",
             description: "Какое-то описание"
         },
-
-
-
-
-
-
-
-
-
-
     ];
 
     const items2 = [

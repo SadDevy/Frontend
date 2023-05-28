@@ -68,6 +68,7 @@
 
   &__disabled {
     opacity: .5;
+    color: gray;
   }
 
   &__link {
@@ -78,6 +79,28 @@
 
       color: #49176d;
       background-color: #7d5996;
+    }
+  }
+}
+
+.disabled {
+  &__link {
+    cursor: default;
+
+    &:hover {
+      color: gray;
+      background-color: #49176d;
+    }
+  }
+}
+
+.active {
+  &__link {
+    cursor: default;
+
+    &:hover {
+      color: #000;
+      background-color: #C8BCC5;
     }
   }
 }

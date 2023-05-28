@@ -56,13 +56,15 @@ const Pagination = ({items, itemsPerPage}) => {
                     previousClassName={styles.pagination__previous}
                     nextClassName={styles.pagination__next}
 
+                    disabledClassName={styles.pagination__disabled}
                     activeClassName={styles.pagination__active}
 
                     pageLinkClassName={styles.pagination__link}
                     previousLinkClassName={styles.pagination__link}
                     nextLinkClassName={styles.pagination__link}
                     breakLinkClassName={styles.pagination__link}
-                    disabledClassName={styles.pagination__disabled}
+                    disabledLinkClassName={styles.disabled__link}
+                    activeLinkClassName={styles.active__link}
                 />
             </div>
         </div>

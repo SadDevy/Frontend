@@ -1,10 +1,10 @@
 import React from 'react';
 import {Route, Routes} from 'react-router-dom';
 
-import {Cards} from "../cards/Cards";
+import {Cards} from "../../general/cards/Cards";
+import {Home} from "../../general/home/Home";
 
 import styles from './Main.module.scss';
-import {Home} from "../home/Home";
 
 export const Main = ({goods, services}) => {
     return (
