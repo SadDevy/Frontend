@@ -1,13 +1,14 @@
 import React from 'react';
 
-import styles from './Home.module.scss';
+import './Home.scss';
 
-export const Home = () => {
+export const Home = ({home}) => {
     return (
-        <div className={styles.home}>
-            <div className={styles.home__info}>
-                <div className={styles.info__address}>ДНТ Сосновый бор</div>
-                <div className={styles.info__phone}>+7 (910) 555-55-55</div>
+        <div className="home">
+            <img className="home__background" src={home.image.url} alt={home.image.alt}/>
+            <div className="home__info">
+                <div className="home-info__address">ДНТ Сосновый бор</div>
+                <div className="home-info__phone">+7 (910) 555-55-55</div>
             </div>
         </div>
     );

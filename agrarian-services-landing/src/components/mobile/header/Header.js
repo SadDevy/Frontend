@@ -1,36 +1,43 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-import styles from './Header.module.scss';
-import {Menu} from "../menu/Menu";
+import {Menu} from '../menu/Menu';
 
-export const Header = ({isMenuShown, setMenuShown}) => {
-    const menuItems = [
-        {
-            name: 'Главная',
-            link: '/'
-        },
-        {
-            name: 'Товары',
-            link: '/goods'
-        },
-        {
-            name: 'Услуги',
-            link: '/services'
-        },
-    ];
+import './Header.scss';
+
+export const Header = ({isMenuShown, setMenuShown, header, categories, categoryGroups}) => {
+    const mobileButtonTopState = isMenuShown != null
+        ? isMenuShown
+            ? "mobile-button__top--open"
+            : "mobile-button__top--closed"
+        : "";
+
+    const mobileButtonMiddleState = isMenuShown != null
+        ? isMenuShown
+            ? "mobile-button__middle--open"
+            : "mobile-button__middle--closed"
+        : "";
+
+    const mobileButtonBottomState = isMenuShown != null
+        ? isMenuShown
+            ? "mobile-button__bottom--open"
+            : "mobile-button__bottom--closed"
+        : "";
 
     return (
-        <header className={styles.header}>
-            <div className={styles.container}>
-                <div className={styles.logo}/>
-
-                <div className={styles.menu__button} onClick={() => setMenuShown(!isMenuShown)}>
-                    <div className={styles.button__top}></div>
-                    <div className={styles.button__middle}></div>
-                    <div className={styles.button__bottom}></div>
+        <header className="mobile-header">
+            <img className="mobile-header__background" src={header.background.url} alt={header.background.alt}/>
+            <div className="mobile-header-container">
+                <div className="mobile-logo-container">
+                    <div className="mobile-logo__background">
+                        <img className="mobile-logo" src={header.logo.url} alt={header.logo.alt}/>
+                    </div>
                 </div>
 
-                <Menu items={menuItems} isShown={isMenuShown} setMenuShown={setMenuShown}/>
+                <div className="mobile-menu__button" onClick={() => setMenuShown(!isMenuShown)}>
+                    <div className={`mobile-button__top ${mobileButtonTopState}`}></div>
+                    <div className={`mobile-button__middle ${mobileButtonMiddleState}`}></div>
+                    <div className={`mobile-button__bottom ${mobileButtonBottomState}`}></div>
+                </div>
             </div>
         </header>
     );

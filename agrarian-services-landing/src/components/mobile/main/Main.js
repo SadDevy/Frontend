@@ -5,17 +5,31 @@ import {Route, Routes} from "react-router-dom";
 import {Home} from "../../general/home/Home";
 import {Cards} from "../../general/cards/Cards";
 
-import mobileStyles from './Main.module.scss';
-import desktopStyles from '../../desktop/main/Main.module.scss';
+import './Main.scss';
+import '../../desktop/main/Main.scss';
 
-export const Main = ({goods, services, isMenuShown, setMenuShown}) => {
+export const Main = ({categories, categoryGroups, isMenuShown, setMenuShown, home}) => {
     return (
-        <main className={desktopStyles.main} onClick={() => setMenuShown(isMenuShown ? !isMenuShown : isMenuShown)}>
-            <div className={mobileStyles.container}>
+        <main className="desktop-main" onClick={() => setMenuShown(isMenuShown ? !isMenuShown : isMenuShown)}>
+            <div className="mobile-main-container">
                 <Routes>
-                    <Route path="/" element={<Home/>}/>
-                    <Route path="/goods" element={<Cards items={goods} itemsPerPage={3}/>}/>
-                    <Route path="/services" element={<Cards items={services} itemsPerPage={3}/>}/>
+                    <Route path="/" element={<Home home={home}/>}/>
+                    {
+                        categories.map(item => {
+                            return item.groups.map(group => {
+                                    return (
+                                        <Route
+                                            path={group.link}
+                                            element={
+                                            <Cards
+                                                items={item.items.filter(item => item.groupId === group.id)}
+                                                itemsPerPage={6}/>
+                                        }/>
+                                    )
+                                }
+                            )
+                        })
+                    }
                 </Routes>
             </div>
         </main>

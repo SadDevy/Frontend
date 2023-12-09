@@ -1,0 +1,17 @@
+{
+  "header": {
+    "background": {
+      "url": "./header.jpg",
+      "alt": "Header background"
+    },
+    "logo": {
+      "url": "./logo.png",
+      "alt": "Logo"
+    },
+    "address": {
+      "destination": "ДНТ Сосновый бор",
+      "url": "https://yandex.ru/navi/-/CCUHIPv2wC"
+    },
+    "phone": "+7 (910) 555-55-55"
+  }
+}

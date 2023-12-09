@@ -1,0 +1,13 @@
+{
+  "home": {
+    "image": {
+      "url": "./home.jpg",
+      "alt": "Home image"
+    },
+    "address": {
+      "destination": "ДНТ Сосновый бор",
+      "url": "https://yandex.ru/navi/-/CCUHIPv2wC"
+    },
+    "phone": "+7 (910) 555-55-55"
+  }
+}

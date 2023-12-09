@@ -1,0 +1,276 @@
+.mobile-header {
+  position: relative;
+
+  width: 100%;
+  height: 300px;
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    filter: blur(1px);
+    opacity: .9;
+  }
+}
+
+.mobile-header-container {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+}
+
+.mobile-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0 auto;
+  width: 350px;
+  height: 100%;
+}
+
+.mobile-logo {
+  height: 125px;
+  width: 165px;
+
+  z-index: 11;
+
+  &__background {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 240px;
+    height: 145px;
+
+    border-radius: 50%;
+    border: 3px solid #320b46;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+
+      border-radius: 50%;
+
+      opacity: .9;
+      background: #2c103a;
+
+      z-index: 10;
+    }
+  }
+}
+
+.mobile-menu {
+  &__button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    height: 40px;
+    width: 40px;
+
+    border-radius: 50%;
+    border: 2px solid #49176d;
+
+    z-index: 13;
+
+    &:hover {
+      transition: .4s;
+      cursor: pointer;
+      background-color: #C8BCC5;
+      border: 2px solid #000;
+    }
+
+    &:hover .button__top,
+    &:hover .button__middle,
+    &:hover .button__bottom {
+      transition: .4s;
+      background-color: #000;
+    }
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+
+      border-radius: 50%;
+
+      opacity: .5;
+      background-color: #49176d;
+    }
+  }
+}
+
+.mobile-button {
+
+  &__top,
+  &__middle,
+  &__bottom {
+    position: absolute;
+    left: 10px;
+
+    height: 2px;
+    width: 50%;
+
+    background-color: #49176d;
+  }
+
+  &__top {
+    top: 11px;
+
+    &--open {
+      animation: menu-button-top-rotate 1s ease;
+      animation-fill-mode: forwards
+    }
+
+    &--closed {
+      animation: menu-button-top-rotate-out 1s ease;
+      animation-fill-mode: forwards
+    }
+  }
+
+  &__middle {
+    top: 19px;
+
+    &--open {
+      display: none;
+    }
+
+    &--closed {
+      animation: menu-button-middle-rotate-out 1s ease;
+      animation-fill-mode: forwards
+    }
+  }
+
+  &__bottom {
+    top: 27px;
+
+    &--open {
+      animation: menu-button-bottom-rotate 1s ease;
+      animation-fill-mode: forwards;
+    }
+
+    &--closed {
+      animation: menu-button-bottom-rotate-out 1s ease;
+      animation-fill-mode: forwards
+    }
+  }
+}
+
+@media screen and (max-width: 412px) {
+  .mobile-logo {
+    width: 90px;
+    height: 65px;
+
+    &__background {
+      width: 170px;
+      height: 95px;
+    }
+  }
+}
+
+@media screen and (max-width: 280px) {
+  .mobile-logo-container {
+    height: 100%;
+    width: 285px;
+  }
+
+  .mobile-logo {
+    width: 65px;
+    height: 40px;
+
+    &__background {
+      width: 130px;
+      height: 65px;
+    }
+  }
+}
+
+@keyframes menu-button-top-rotate {
+  from {
+    top: 11px;
+    width: 50%;
+    transform: rotate(0);
+  }
+
+  to {
+    top: 18px;
+    left: 6px;
+    width: 74%;
+    transform: rotate(45deg);
+  }
+}
+
+
+@keyframes menu-button-top-rotate-out {
+  from {
+    top: 18px;
+    left: 6px;
+    width: 74%;
+    transform: rotate(45deg);
+  }
+
+  to {
+    top: 11px;
+    width: 50%;
+    transform: rotate(0);
+  }
+}
+
+@keyframes menu-button-bottom-rotate {
+  from {
+    top: 27px;
+    width: 50%;
+    transform: rotate(0);
+  }
+
+  to {
+    top: 19px;
+    left: 5px;
+    width: 74%;
+    transform: rotate(-45deg);
+  }
+}
+
+@keyframes menu-button-bottom-rotate-out {
+  from {
+    top: 18px;
+    left: 6px;
+    width: 74%;
+    transform: rotate(45deg);
+  }
+
+  to {
+    top: 27px;
+    width: 50%;
+    transform: rotate(0);
+  }
+}
+
+@keyframes menu-button-middle-rotate-out {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 50%;
+  }
+}

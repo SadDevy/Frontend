@@ -1,4 +1,4 @@
-.main {
+.desktop-main {
     position: relative;
 
     min-height: calc(100vh - 350px);
@@ -23,7 +23,7 @@
     }
 }
 
-.container {
+.desktop-main-container {
     display: flex;
     justify-content: center;
     align-items: center;

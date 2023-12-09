@@ -4,16 +4,30 @@ import {Route, Routes} from 'react-router-dom';
 import {Cards} from "../../general/cards/Cards";
 import {Home} from "../../general/home/Home";
 
-import styles from './Main.module.scss';
+import './Main.scss';
 
-export const Main = ({goods, services}) => {
+export const Main = ({categories, categoryGroups, home}) => {
     return (
-        <main className={styles.main}>
-            <div className={styles.container}>
+        <main className="desktop-main">
+            <div className="desktop-main-container">
                 <Routes>
-                    <Route path="/" element={<Home/>}/>
-                    <Route path="/goods" element={<Cards items={goods} itemsPerPage={6}/>}/>
-                    <Route path="/services" element={<Cards items={services} itemsPerPage={6}/>}/>
+                    <Route path="/" element={<Home home={home}/>}/>
+                    {
+                        categories.map(item => {
+                            return item.groups.map(group => {
+                                    return (
+                                        <Route
+                                            path={group.link}
+                                            element={
+                                            <Cards
+                                                items={item.items.filter(item => item.groupId === group.id)}
+                                                itemsPerPage={6}/>
+                                        }/>
+                                    )
+                                }
+                            )
+                        })
+                    }
                 </Routes>
             </div>
         </main>

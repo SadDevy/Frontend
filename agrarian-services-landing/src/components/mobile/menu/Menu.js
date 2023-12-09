@@ -2,21 +2,29 @@ import React from 'react';
 
 import {MenuItem} from "./item/MenuItem";
 
-import styles from './Menu.module.scss';
+import './Menu.scss';
 
-export const Menu = ({items, isShown, setMenuShown}) => {
-    const menuState = isShown ? styles.menu__open : styles.menu__close;
+export const Menu = ({categories, categoryGroups, isShown, setMenuShown}) => {
+    const menuState = isShown != null
+        ? isShown ? "mobile-menu--open" : "mobile-menu--closed"
+        : "";
+
     return (
-        <div className={`${styles.menu} ${menuState}`}>
-            <div className={styles.container}>
+        <div className={`mobile-menu ${menuState}`}>
+            <div className="mobile-layout--sub-menu-shown" />
+            <div className="mobile-menu-container">
+                <MenuItem title={"Главная"} link={"/"} isMenuShown={isShown} setMenuShown={setMenuShown}/>
                 {
-                    items.map((item, index) =>
-                        <MenuItem
-                            key={index}
-                            link={item.link}
-                            name={item.name}
-                            isShown={isShown}
-                            setMenuShown={setMenuShown}/>)
+                    categories.map(item =>
+                        <MenuItem key={item.id}
+                                  title={item.title}
+                                  link={null}
+                                  subItems={item.groups}
+                                  isShown={categoryGroups[item.name].isShown}
+                                  setShown={categoryGroups[item.name].setShown}
+                                  isMenuShown={isShown}
+                                  setMenuShown={setMenuShown}/>
+                    )
                 }
             </div>
         </div>
